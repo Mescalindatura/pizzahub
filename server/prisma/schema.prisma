@@ -11,41 +11,42 @@ datasource db {
 }
 
 model Item {
-  id Int    @id @default(autoincrement())
-  name   String @unique
-//  estimatedTime DateTime @default(dbgenerated("10"))
-  price  Float
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  contains String
+  price Float
 }
 
 model Order {
-  id      Int      @id @default(autoincrement())
-  creationTime DateTime @default(now())
-  estimatedTime DateTime
-  status      Int @default(0)
-  lastUpdateTime DateTime @default(now())
-  items        Bytes
-  totalPrice   Float
+  id            Int      @id @default(autoincrement())
+  items         Bytes
+  totalPrice    Float
+  estimatedTime Int
+  status        Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
 }
 
+
 model User {
-  id  Int    @id @default(autoincrement())
-  address String
-  storeName String @unique
-  settings UserSetting[]
+  id        Int           @id @default(autoincrement())
+  address   String
+  storeName String        @unique
+  settings  UserSetting[]
 }
 
 model SiteSetting {
-  id Int @id @default(autoincrement())
-  label String
+  id           Int           @id @default(autoincrement())
+  label        String
   defaultValue String
   userSettings UserSetting[]
-
 }
 
 model UserSetting {
-  recordID BigInt @id @default(autoincrement())
-  user User @relation(fields: [userID], references: [id])
-  userID Int
-  setting SiteSetting @relation(fields: [settingID], references: [id])
+  recordID  BigInt      @id @default(autoincrement())
+  user      User        @relation(fields: [userID], references: [id])
+  userID    Int
+  setting   SiteSetting @relation(fields: [settingID], references: [id])
   settingID Int
+  value     String
 }

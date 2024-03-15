@@ -8,6 +8,16 @@ export enum OrderStatuses {
     RATED
 }
 
+export enum PizzaIngridients {
+    PEPERONI,
+    CHEDDAR,
+    MUSHROOMS,
+    TOMATOES,
+        OLIVES,
+    SHRIMPS,
+    PICOLLIS
+}
+
 export enum SettingsValues {
 
 }
