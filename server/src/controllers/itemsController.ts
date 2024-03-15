@@ -4,7 +4,7 @@ import {Request, Response} from 'express';
 
 const prisma = new PrismaClient();
 
-app.get('/items', async (res: Response) => {
+app.get('/items', async (req: Request, res: Response) => {
     try {
         const items = await prisma.item.findMany();
         res.json(items);

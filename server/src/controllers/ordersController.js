@@ -11,7 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deserializeOrders = void 0;
 const index_1 = require("../index");
-const prismaClient_1 = require("../prisma/prismaClient");
+const prismaClient_1 = require("../../prisma/prismaClient");
 function deserializeOrderItems(bufferData) {
     const jsonString = bufferData.toString();
     return JSON.parse(jsonString);

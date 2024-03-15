@@ -1,5 +1,5 @@
 import {app} from "../index";
-import {prisma} from "../prisma/prismaClient";
+import {prisma} from "../../prisma/prismaClient";
 import {Request, Response} from 'express';
 import {OrderItem} from "../constants/interfaces";
 
